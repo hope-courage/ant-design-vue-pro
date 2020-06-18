@@ -3,7 +3,6 @@ import VueRouter from "vue-router";
 import NProgress from "nprogress";
 import "nprogress/nprogress.css";
 import NotFound from "../views/404";
-// import RenderRouterView from "../components/RenderRouterView.vue";
 
 Vue.use(VueRouter);
 
@@ -11,14 +10,10 @@ const routes = [
   // user - 登录、注册
   {
     path: "/user",
-    //可以接收子路由中组件的挂载
-    // component: RenderRouterView,
-    // component: { render: h => h("router-view") }, //原理：JSX与template都会被转义成render函数
     component: () =>
       import(/* webpackChunkName: "user" */ "../layouts/UserLayout.vue"),
     children: [
       {
-        // 当访问路径为"/user"时，自动跳转到"/user/login"
         path: "/user",
         redirect: "/user/login"
       },
@@ -126,7 +121,6 @@ const router = new VueRouter({
   routes
 });
 
-// 不直接返回是为了获取这两个钩子？
 router.beforeEach((to, from, next) => {
   NProgress.start();
   next();
