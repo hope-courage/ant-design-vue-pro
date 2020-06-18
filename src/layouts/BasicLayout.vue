@@ -32,8 +32,6 @@
         </a-layout-footer>
       </a-layout>
     </a-layout>
-    <!-- 抽屉 -->
-    <SettingDrawer />
   </div>
 </template>
 
@@ -41,7 +39,6 @@
 import Header from "./Header";
 import SiderMenu from "./SiderMenu";
 import Footer from "./Footer";
-import SettingDrawer from "../components/SettingDrawer";
 
 export default {
   data() {
@@ -60,8 +57,7 @@ export default {
   components: {
     Header,
     SiderMenu,
-    Footer,
-    SettingDrawer
+    Footer
   }
 };
 </script>
