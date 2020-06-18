@@ -1,14 +1,8 @@
 <template>
-  <div :class="[`nav-theme-${navTheme}`, `nav-layout-${navLayout}`]">
+  <div>
     <a-layout id="components-layout-demo-side" style="min-height: 100vh">
       <!-- 菜单栏sidermenu -->
-      <a-layout-sider
-        v-if="navLayout === 'left'"
-        :theme="navTheme"
-        :trigger="null"
-        v-model="collapsed"
-        collapsible
-      >
+      <a-layout-sider :trigger="null" v-model="collapsed" collapsible>
         <div class="logo">Ant Design Vue Pro</div>
         <SiderMenu />
       </a-layout-sider>
@@ -45,14 +39,6 @@ export default {
     return {
       collapsed: false // 左侧菜单收缩
     };
-  },
-  computed: {
-    navTheme() {
-      return this.$route.query.navTheme || "dark";
-    },
-    navLayout() {
-      return this.$route.query.navLayout || "left";
-    }
   },
   components: {
     Header,
